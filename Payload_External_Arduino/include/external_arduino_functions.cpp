@@ -2,6 +2,7 @@
 #include "external_arduino_functions.hpp"
 #include <SPI.h>
 #include <SD.h>
+#include <RTClib.h>
 
 //Arduino Pins
 int buzzer_pin = 2;
@@ -37,7 +38,7 @@ void Buzzer(){
   digitalWrite(buzzer_pin, LOW);
 }
 
-bool determineLaunch(bool launch){
+int determineLaunch(int launch){
   //This function must loop until launch occurs
 
   if (launch == 1){
@@ -55,16 +56,16 @@ void startInnerArduino(){
   digitalWrite(str_pin, HIGH);
 }
 
-bool determineDrogue(bool drogue){
+int determineDrogue(int drogue){
   //This function must loop until drogue deployment occurs
-  if (drogue == 1){
-    return drogue = 1;
+  if (drogue == 2){
+    return drogue = 2;
   }
   //Use the accelerameter to determine main drogue
   //separation must also write to the SD with data
   //before main drogue separation
 
-  return drogue = 1;
+  return drogue = 2;
 }
 
 void openDoor(){
@@ -73,16 +74,16 @@ void openDoor(){
   //Don't forget to turn on servo power
 }
 
-bool determineSepartion(bool separation){
+int determineSepartion(int separation){
   //This function must loop until separation is good
-  if (separation == 1){
-    return separation = 1;
+  if (separation == 3){
+    return separation = 3;
   }
   //Use the light sensor to determine when separation
   //can occur also write to the SD with data
   //about this separation
 
-  return separation = 1;
+  return separation = 3;
 }
 
 void startParachuteTimer(){

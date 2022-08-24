@@ -1,11 +1,13 @@
 #include <Arduino.h>
 #include <external_arduino_functions.cpp>
 
-//global varibles for staging
-//Make ONE stage variable that has all this information
-bool LAUNCH = 0; //0 if launch has not occured, 1 if it has
-bool DROGUE = 0; //0 if main drogue not deployed, 1 if it has
-bool SEPARTION = 0; //0 if not good for separation, 1 if it is
+//global variable to determine the stage of the rocket
+//0: Rocket not launch
+//1: Rocket launched
+//2: Drogue out
+//3: Payload separation completed
+int STAGE = 0;
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,12 +28,12 @@ void loop() {
   //This code down here isn't going to work
   //Like the global variables for stage (but make one)
   //Need to change these functions so that they always loop
-  //This means adding some if statements but thats fine 
-  LAUNCH = determineLaunch(LAUNCH);
+  //This means adding some if statements but thats fine
+  STAGE = determineLaunch(STAGE);
   startInnerArduino();
-  DROGUE = determineDrogue(DROGUE);
+  STAGE = determineDrogue(STAGE);
   openDoor();
-  SEPARTION = determineSepartion(SEPARTION);
+  STAGE = determineSepartion(STAGE);
   startParachuteTimer();
   openStraps();
   closeDoor();
