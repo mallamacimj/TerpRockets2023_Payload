@@ -1,8 +1,14 @@
 //Add libraries needed here
 #include "external_arduino_functions.hpp"
 #include <SPI.h>
-#include <SD.h>
-#include <RTClib.h>
+#include <Wire.h>
+#include <SD.h> //SD card
+#include <RTClib.h> //rtc
+#include <hp_BH1750.h> //light sensor
+#include <Adafruit_MPU6050.h> //accel and gyro
+#include <Adafruit_Sensor.h> //accel and gyro dependency
+#include <Servo.h> //servos
+
 
 //Arduino Pins
 int buzzer_pin = 2;
