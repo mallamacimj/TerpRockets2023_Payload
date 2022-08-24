@@ -25,17 +25,29 @@ void loop() {
   //and maybe light sensor (only do that after launch)
 
 
+  //Determine Stage
+  if(STAGE == 0){
+    STAGE = determineLaunch(STAGE);
+  }
+  elseif(STAGE == 1){
+    STAGE = determineDrogue(STAGE);
+  }
+  elseif(STAGE == 2){
+    STAGE = determineSepartion(STAGE)
+  }
+
   //This code down here isn't going to work
+  //But it is in the order that things need to happen
   //Like the global variables for stage (but make one)
   //Need to change these functions so that they always loop
   //This means adding some if statements but thats fine
-  STAGE = determineLaunch(STAGE);
+  /*STAGE = determineLaunch(STAGE);
   startInnerArduino();
   STAGE = determineDrogue(STAGE);
   openDoor();
   STAGE = determineSepartion(STAGE);
   startParachuteTimer();
   openStraps();
-  closeDoor();
+  closeDoor();*/
 
 }

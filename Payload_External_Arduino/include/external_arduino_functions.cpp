@@ -45,7 +45,6 @@ void Buzzer(){
 }
 
 int determineLaunch(int launch){
-  //This function must loop until launch occurs
 
   if (launch == 1){
     return launch = 1; //End the function if Launch has already occured
@@ -63,7 +62,6 @@ void startInnerArduino(){
 }
 
 int determineDrogue(int drogue){
-  //This function must loop until drogue deployment occurs
   if (drogue == 2){
     return drogue = 2;
   }
@@ -81,7 +79,6 @@ void openDoor(){
 }
 
 int determineSepartion(int separation){
-  //This function must loop until separation is good
   if (separation == 3){
     return separation = 3;
   }
